@@ -12,14 +12,15 @@
         font-family: helvetica, arial, sans-serif;
         font-size: 20px;
         margin: 0;
-        height: 100vh;
+        min-height: 100vh;
+        padding-top: 10rem;
         background: linear-gradient(
           to top right,
           hsl(326.97, 100%, 65.1%) 20%,
           hsl(210, 100%, 65.1%) 80%
         );
         display: flex;
-        place-items: center;
+        overflow: hidden;
       }
       main {
         margin: 0 auto;
@@ -53,15 +54,16 @@
       }
       .reveal .focus {
         display: inline-block;
-        scale: 20;
+        scale: 7;
+        translate: -170%;
         color: blue;
       }
       .reveal .unfocus {
-        opacity: 0.2;
+        opacity: 0;
       }
     </style>
   </head>
-  <body>
+  <body class="reveal">
     <main>
       <h1 id="title" class="unfocus">CHARADA</h1>
       <div id="question">
