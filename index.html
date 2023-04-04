@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Revelação</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 20px;
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(
+          to top right,
+          hsl(326.97, 100%, 65.1%) 20%,
+          hsl(210, 100%, 65.1%) 80%
+        );
+        display: flex;
+        place-items: center;
+      }
+      main {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 260px;
+        max-width: 90%;
+      }
+      #title {
+        margin: 0 0 2rem;
+        text-align: center;
+      }
+      #question {
+        margin-bottom: 1rem;
+        z-index: 1;
+      }
+      #answer {
+        margin-top: 1rem;
+        background: white;
+        border: none;
+        border-radius: 99px;
+        font-size: 20px;
+        padding: 0.5rem;
+      }
+      #answer:active {
+        opacity: 0.7;
+      }
+      .focus,
+      .unfocus {
+        transition: all 5s;
+      }
+      .reveal .focus {
+        display: inline-block;
+        scale: 20;
+        color: blue;
+      }
+      .reveal .unfocus {
+        opacity: 0.2;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 id="title" class="unfocus">CHARADA</h1>
+      <div id="question">
+        <span class="unfocus"
+          >Em 31 de dezembro de 2030 qual será a soma das idades de Thomas e de
+          seu</span
+        >
+        <span class="focus">irmão</span><span class="unfocus">?</span>
+      </div>
+      <label class="option unfocus">
+        <input type="radio" name="option" />
+        13
+      </label>
+      <label class="option unfocus">
+        <input type="radio" name="option" />
+        14
+      </label>
+      <label class="option unfocus">
+        <input type="radio" name="option" />
+        15
+      </label>
+      <label class="option unfocus">
+        <input type="radio" name="option" />
+        16
+      </label>
+      <label class="option unfocus">
+        <input type="radio" name="option" />
+        17
+      </label>
+      <button id="answer" class="unfocus">Revelar</button>
+    </main>
+    <script>
+      const answerBtn = document.getElementById('answer');
+      function onAnswer() {
+        document.body.classList.add('reveal');
+        answerBtn.removeEventListener('click', onAnswer);
+      }
+      answerBtn.addEventListener('click', onAnswer);
+    </script>
+  </body>
+</html>
